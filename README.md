@@ -42,9 +42,10 @@ Passing data between threads is an important concurrency requirement.
 1. promises and futures - one time only
 2. Mutexes lock and unlock
 3. lock guard
-4. condition variables and loops
+4. condition variables and monitor loops
 
 **Understanding data races**
 One of the primary sources of error in concurrent programming are data races. They occur, when two concurrent threads are accessing the same memory location while at least one of them is modifying (the other thread might be reading or modifying). In this scenario, the value at the memory location is completely undefined. Depending on the system scheduler, the second thread will be executed at an unknown point in time and thus see different data at the memory location with each execution. Depending on the type of program, the result might be anything from a crash to a security breach when data is read by a thread that was not meant to be read, such as a user password or other sensitive information. Such an error is called a „data race“ because two threads are racing to get access to a memory location first, with the content at the memory location depending on the result of the race.
 
-
+**A good reference book**
+C++ Concurrency in Action: Practical Multithreading by Anthony Williams

@@ -32,25 +32,20 @@ Throughout the Concurrency course, you have been developing a traffic simulation
 A **thread** represents a concurrent execution unit within a process. In contrast to a full-blown process, thread is characterized as light-weight process. Threads are significantly easier to create and destroy. A major difference between a process and a thread is that each process has its own address space, while a thread does not require a new address space to be created. All the threads in a process can access its shared memory. Threads also share other OS dependent resources such as processors, files, and network connections. As a result, the management overhead for threads is typically less than for processes. 
 
 **How to launch a thread:**
-
 Threads can be launched using "thread" or "async"
 
 **How to start a thread:**
-
 Threads can be started by passing a function to execute, a callable object or a lambda. The thread constructor is a **variadic template** that can take multiple arguments, hence functions with multiple arguments can also be used.
 
 **Passing data between threads:**
-
 Passing data between threads is an important concurrency requirement.
 1. promises and futures - one time only
 2. Mutexes lock and unlock
 3. lock guard
 4. condition variables and monitor loops
 
-**Understanding data races**
-
+**Understanding data races:**
 One of the primary sources of error in concurrent programming are data races. They occur, when two concurrent threads are accessing the same memory location while at least one of them is modifying (the other thread might be reading or modifying). In this scenario, the value at the memory location is completely undefined. Depending on the system scheduler, the second thread will be executed at an unknown point in time and thus see different data at the memory location with each execution. Depending on the type of program, the result might be anything from a crash to a security breach when data is read by a thread that was not meant to be read, such as a user password or other sensitive information. Such an error is called a __data race__ because two threads are racing to get access to a memory location first, with the content at the memory location depending on the result of the race.
 
-**A good reference book**
-
+**A good reference book:\n**
 C++ Concurrency in Action: Practical Multithreading by Anthony Williams
